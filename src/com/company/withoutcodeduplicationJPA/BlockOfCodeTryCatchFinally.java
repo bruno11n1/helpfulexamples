@@ -7,8 +7,8 @@ import javax.persistence.EntityManager;
  */
 
 //this interface is require for refactoring to anonymous inner class
-public interface BlockOfCodeTryCatchFinally {
+public interface BlockOfCodeTryCatchFinally<T> {
 
-  AnEntity execute(EntityManager entityManager);
+  T execute(EntityManager entityManager);
 
 }

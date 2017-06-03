@@ -17,10 +17,11 @@ public class TransactionTemplate {
     this.entityManagerFactory = entityManagerFactory;
   }
 
-  public AnEntity execute(BlockOfCodeTryCatchFinally blockOfCode) {
+  public <T> T execute(BlockOfCodeTryCatchFinally <T> blockOfCode) {
+    EntityManagerFactory entityManagerFactory;
     EntityManager entityManager = this.entityManagerFactory.createEntityManager();
     EntityTransaction transaction = null;
-    AnEntity entity = null;
+    T entity = null;
     try {
       transaction = entityManager.getTransaction();
       transaction.begin();

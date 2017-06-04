@@ -1,6 +1,5 @@
 package com.company.withoutcodeduplicationJPA.java8fashion;
 
-import com.company.withoutcodeduplicationJPA.AnEntity;
 import com.company.withoutcodeduplicationJPA.BlockOfCodeTryCatchFinally;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -17,7 +16,7 @@ public class TransactionTemplate {
     this.entityManagerFactory = entityManagerFactory;
   }
 
-  public <T> T execute(BlockOfCodeTryCatchFinally <T> blockOfCode) {
+  public <T> T execute(BlockOfCodeTryCatchFinally<T> blockOfCode) {
     EntityManagerFactory entityManagerFactory;
     EntityManager entityManager = this.entityManagerFactory.createEntityManager();
     EntityTransaction transaction = null;

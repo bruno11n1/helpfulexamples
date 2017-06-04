@@ -1,6 +1,5 @@
 package com.company.desingpatterns.factorypattern;
 
-import com.company.desingpatterns.factorypattern.factoryutil.Shape;
 import com.company.desingpatterns.factorypattern.factoryutil.ShapeFactory;
 import java.util.function.Supplier;
 

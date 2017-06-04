@@ -1,7 +1,5 @@
 package com.company.desingpatterns.strategypattern;
 
-import com.company.desingpatterns.strategypattern.Strategy;
-
 /**
  * Created by Grzegorz on 03-Jun-17.
  */

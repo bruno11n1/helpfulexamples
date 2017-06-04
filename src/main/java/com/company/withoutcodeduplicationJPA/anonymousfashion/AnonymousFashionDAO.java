@@ -41,7 +41,7 @@ public class AnonymousFashionDAO {
   }
 
   public AnEntity byId(long id) {
-    return transactionExecute(new BlockOfCodeTryCatchFinally() {
+    return (AnEntity) transactionExecute(new BlockOfCodeTryCatchFinally() {
       @Override
       public AnEntity execute(EntityManager entityManager) {
         return entityManager.find(AnEntity.class, id);
@@ -50,13 +50,13 @@ public class AnonymousFashionDAO {
   }
 
 
-  private AnEntity transactionExecute(BlockOfCodeTryCatchFinally blockOfCode) {
+  private <T> T transactionExecute(BlockOfCodeTryCatchFinally <T> blockOfCode) {
     EntityManager entityManager = this.entityManagerFactory.createEntityManager();
     EntityTransaction transaction = null;
     try {
       transaction = entityManager.getTransaction();
       transaction.begin();
-      AnEntity entity = blockOfCode.execute(entityManager);
+      T entity = blockOfCode.execute(entityManager);
       transaction.commit();
       return entity;
     } catch (Exception e) {
